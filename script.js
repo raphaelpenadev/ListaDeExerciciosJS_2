@@ -176,4 +176,56 @@ function mostrarPrimeiroeUltimoElemento(arr) {
   return arrayResultado;
 }
 
-console.log(mostrarPrimeiroeUltimoElemento(array));
+// console.log(mostrarPrimeiroeUltimoElemento(array));
+
+// 12
+const obj = { nome: "teste", idade: 20, teste: "remover" };
+
+function removerProp(obj, prop) {
+  delete obj[prop];
+  return obj;
+}
+
+// console.log(removerProp(obj, 'teste'));
+
+
+// 13
+const arr = ["a", 12, "b", "c", 20];
+
+function retornaArrayNumbers(arr) {
+  let novaArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      novaArr.push(arr[i]);
+    }
+  }
+  return novaArr;
+}
+
+// console.log(retornaArrayNumbers(arr));
+
+
+// 14
+const objArray = { nome: 'teste', sobrenome: 'Teste', idade: 12, altura: 1.60 }
+
+function objToArray(obj) {
+  return Object.entries(objArray);
+}
+
+// console.log(objToArray(objArray));
+
+
+// 15
+const arrPares = [2, 4, 536, 3546, 457, 2, 876, 72, 5, 654, 523, 5, 87];
+let arrAjustada = [];
+
+function selectKeyParandNumPar(arr) {
+  console.log(arr);
+}
+
+console.log(selectKeyParandNumPar(arrPares));
+
+
+
+
+
