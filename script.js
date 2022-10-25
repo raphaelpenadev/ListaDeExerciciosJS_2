@@ -188,7 +188,6 @@ function removerProp(obj, prop) {
 
 // console.log(removerProp(obj, 'teste'));
 
-
 // 13
 const arr = ["a", 12, "b", "c", 20];
 
@@ -204,9 +203,8 @@ function retornaArrayNumbers(arr) {
 
 // console.log(retornaArrayNumbers(arr));
 
-
 // 14
-const objArray = { nome: 'teste', sobrenome: 'Teste', idade: 12, altura: 1.60 }
+const objArray = { nome: "teste", sobrenome: "Teste", idade: 12, altura: 1.6 };
 
 function objToArray(obj) {
   return Object.entries(objArray);
@@ -214,18 +212,228 @@ function objToArray(obj) {
 
 // console.log(objToArray(objArray));
 
-
 // 15
-const arrPares = [2, 4, 536, 3546, 457, 2, 876, 72, 5, 654, 523, 5, 87];
+const arrFilterPares = [2, 4, 536, 3546, 457, 2, 876, 72, 5, 654, 523, 5, 87];
 let arrAjustada = [];
 
 function selectKeyParandNumPar(arr) {
-  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 == 0) {
+      if (arr[i] % 2 == 0) {
+        arrAjustada.push(arr[i]);
+      }
+    }
+  }
+  return arrAjustada;
+}
+// console.log(selectKeyParandNumPar(arrFilterPares));
+
+// 16
+function calculaAnoBissexto(ano) {
+  if (ano % 4 == 0) {
+    if (ano % 400 == 0) {
+      if (ano % 100 == 0) {
+        console.log("É bissexto");
+      }
+    }
+  }
 }
 
-console.log(selectKeyParandNumPar(arrPares));
+// calculaAnoBissexto(2000);
 
+// 17
+const arr3 = [1, 2, 3];
 
+function somaArray(arr) {
+  let somaElementosArray = arr.reduce((atual, prox) => atual + prox);
+  return somaElementosArray;
+}
 
+// console.log(somaArray(arr3));
 
+// 18
+const arrDespesas = [
+  { nome: "Produto 1", ano: 2020, preco: 4.2 },
+  { nome: "Produto 2", ano: 2015, preco: 4.6 },
+  { nome: "Produto 3", ano: 2018, preco: 6.8 },
+  { nome: "Produto 4", ano: 2019, preco: 16.12 },
+];
 
+function retornaDespesas(arrObj) {
+  let somaArrayObj;
+  somaArrayObj = arrObj
+    .map((e) => e.preco)
+    .reduce((atual, prox) => atual + prox);
+  console.log(
+    "Total de despesas: R$" +
+      somaArrayObj.toFixed(2).toString().replace(".", ",")
+  );
+}
+
+// retornaDespesas(arrDespesas);
+
+// 19
+function retonarMediaArray(arr) {
+  let somaResultado = arr.reduce((atual, prox) => atual + prox);
+  let resultadoFinal = somaResultado / arr.length;
+  return resultadoFinal;
+}
+// console.log(retonarMediaArray([1, 2, 3]));
+
+// 20
+function calculaAreaTriangulo(base, altura) {
+  let area = (base * altura) / 2;
+  return area;
+}
+
+// console.log(calculaAreaTriangulo(2, 2));
+
+// 21
+function retornaMin(arr) {
+  let ordenaArray = arr.sort();
+  let numMin = ordenaArray[0];
+  return numMin;
+}
+
+// console.log(retornaMin([2, 1, 5, 9, 7]));
+
+// 22
+function sorteiaNum(num) {
+  let sorteadoNumero = Math.floor(Math.random() * 10);
+  if (num === sorteadoNumero) {
+    console.log("PARABENS! O numero sorteado foi o " + sorteadoNumero);
+  } else {
+    console.log("Que pena o numero sorteado foi o " + sorteadoNumero);
+  }
+  return sorteadoNumero;
+}
+
+// console.log(sorteiaNum(3));
+
+// 23
+function contaPalavra(string) {
+  let count = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] == " ") {
+      count++;
+    }
+  }
+  return "Existem " + (count + 1) + " palavras nessa frase.";
+}
+
+// console.log(contaPalavra("Teste de espaços ok"));
+
+// 24
+function contaOcorrenciaDeLetra(char, sentence) {
+  let countLetter = 0;
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i] == char) {
+      countLetter++;
+    }
+  }
+  return countLetter;
+}
+
+// console.log(contaOcorrenciaDeLetra("A", " aa a  aa b bdkdp a efki a"));
+
+// 25
+function buscarPalavrasSemelhantes(str, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes(str) == true) {
+      console.log(arr[i]);
+    }
+  }
+}
+
+// buscarPalavrasSemelhantes("tes", ["teste", "tesDe", "palavratess"]);
+
+// 26
+function removerVogais(phrase) {
+  const regex = /[aeiouà-ú]/gi;
+  return phrase.replace(regex, "");
+}
+
+// console.log(removerVogais("Teste de remoção de caractéres"));
+
+// 27(REVER)
+let objToInvert = { a: 1, b: 2, c: 3 };
+
+function invertObj(obj) {
+  let newObj = {};
+  for (let key in obj) {
+    newObj[obj[key]] = key;
+  }
+  return newObj;
+}
+
+// console.log(invertObj(objToInvert));
+
+// 28
+function somenteDoisDigitos(arr, digitos) {
+  let arrDigitoString = [];
+  let novaArrFiltered = [];
+  for (let i = 0; i < arr.length; i++) {
+    novaArrFiltered.push(arr[i].toString());
+  }
+  for (let x = 0; x < novaArrFiltered.length; x++) {
+    if (novaArrFiltered[x].length == digitos) {
+      arrDigitoString.push(novaArrFiltered[x]);
+    }
+  }
+
+  return arrDigitoString;
+}
+
+// console.log(somenteDoisDigitos([12, 10, 100, 40, 22, 9, 100], 2));
+
+// 29
+function selecionaOSegundoMaior(arr) {
+  let arrNumOrder = arr.sort((a, b) => a - b);
+  let indice = arrNumOrder.length;
+  return arrNumOrder[indice - 2];
+}
+
+// console.log(selecionaOSegundoMaior([2, 8, 2, 4, 356, 743, 36, 246, 7, 8, 6]));
+
+// 30
+function verificarMelhorEstudante(obj) {
+  let mediaJoao = 0;
+  let mediaMaria = 0;
+  let mediaCarla = 0;
+  let media = 0;
+  let nome = "";
+
+  mediaJoao = obj.Joao.reduce((e1, e2) => (e1 + e2) / 4);
+  mediaMaria = obj.Maria.reduce((e1, e2) => (e1 + e2) / 4);
+  mediaCarla = obj.Carla.reduce((e1, e2) => (e1 + e2) / 4);
+
+  console.log(Object.keys(obj));
+
+  console.log(mediaJoao, mediaMaria, mediaCarla);
+
+  if (mediaJoao > mediaMaria && mediaJoao > mediaCarla) {
+    media = mediaJoao;
+    nome = "João";
+  }
+  if (mediaMaria > mediaJoao && mediaMaria > mediaCarla) {
+    media = mediaMaria;
+    nome = "Maria";
+  }
+  if (mediaCarla > mediaJoao && mediaCarla > mediaMaria) {
+    media = mediaCarla;
+    nome = "Carla";
+  }
+
+  return {
+    nome: nome,
+    media: media.toFixed(2),
+  };
+}
+
+console.log(
+  verificarMelhorEstudante({
+    Joao: [7, 1.35, 10, 6],
+    Maria: [8, 9.35, 1, 8],
+    Carla: [8, 1.3, 0, 6],
+  })
+);
