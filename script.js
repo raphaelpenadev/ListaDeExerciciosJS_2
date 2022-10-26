@@ -396,44 +396,36 @@ function selecionaOSegundoMaior(arr) {
 // console.log(selecionaOSegundoMaior([2, 8, 2, 4, 356, 743, 36, 246, 7, 8, 6]));
 
 // 30
-function verificarMelhorEstudante(obj) {
-  let mediaJoao = 0;
-  let mediaMaria = 0;
-  let mediaCarla = 0;
-  let media = 0;
-  let nome = "";
+const estudantes = {
+  joao: [2, 10, 8, 3.75],
+  carla: [10, 10, 10, 10],
+  carmen: [10, 2, 9, 8],
+};
 
-  mediaJoao = obj.Joao.reduce((e1, e2) => (e1 + e2) / 4);
-  mediaMaria = obj.Maria.reduce((e1, e2) => (e1 + e2) / 4);
-  mediaCarla = obj.Carla.reduce((e1, e2) => (e1 + e2) / 4);
+let melhorDesempenho = {
+  nome: "",
+  media: 0.0,
+};
 
-  console.log(Object.keys(obj));
+function calculaMedia(estudantes) {
+  let media = 0.0;
+  let comparacao = 0.0;
 
-  console.log(mediaJoao, mediaMaria, mediaCarla);
+  for (let estudante in estudantes) {
+    media = comparacao;
 
-  if (mediaJoao > mediaMaria && mediaJoao > mediaCarla) {
-    media = mediaJoao;
-    nome = "João";
+    comparacao =
+      estudantes[estudante].reduce((a, b) => a + b, 0) /
+      estudantes[estudante].length;
+
+    if (comparacao > media) {
+      media = comparacao;
+
+      melhorDesempenho.nome = estudante;
+      melhorDesempenho.media = media;
+    }
   }
-  if (mediaMaria > mediaJoao && mediaMaria > mediaCarla) {
-    media = mediaMaria;
-    nome = "Maria";
-  }
-  if (mediaCarla > mediaJoao && mediaCarla > mediaMaria) {
-    media = mediaCarla;
-    nome = "Carla";
-  }
-
-  return {
-    nome: nome,
-    media: media.toFixed(2),
-  };
+  return melhorDesempenho;
 }
 
-console.log(
-  verificarMelhorEstudante({
-    Joao: [7, 1.35, 10, 6],
-    Maria: [8, 9.35, 1, 8],
-    Carla: [8, 1.3, 0, 6],
-  })
-);
+console.log(calculaMedia(estudantes));
